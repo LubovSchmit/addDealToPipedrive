@@ -11,4 +11,4 @@ node_modules/
 .DS_Store
 
 # Игнорировать файлы конфигурации среды
-.envgit add .gitignore
+.env
