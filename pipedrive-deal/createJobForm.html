@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="form-container">
+    <form id="dealForm">
+        <div class="form-block">
+            <h2>Client Details</h2>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-block">
+            <h2>Job Details</h2>
+            <label for="jobType">Job Type</label>
+            <select id="jobType" name="jobType" required>
+                <option value="">Select Job Type</option>
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+            </select>
+
+            <label for="jobSource">Job Source</label>
+            <select id="jobSource" name="jobSource" required>
+                <option value="">Select Job Source</option>
+                <option value="website">Website</option>
+                <option value="referral">Referral</option>
+            </select>
+
+            <label for="jobDescription">Job Description (optional)</label>
+            <textarea id="jobDescription" name="jobDescription" rows="4"></textarea>
+        </div>
+
+        <div class="form-block">
+            <h2>Service Location</h2>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="zipCode">Zip Code</label>
+            <input type="text" id="zipCode" name="zipCode" required>
+
+            <label for="area">Area</label>
+            <select id="area" name="area" required>
+                <option value="">Select Area</option>
+                <option value="north">North</option>
+                <option value="south">South</option>
+            </select>
+        </div>
+
+        <div class="form-block">
+            <h2>Scheduled</h2>
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" name="startDate" required>
+
+            <label for="startTime">Start Time</label>
+            <input type="time" id="startTime" name="startTime" required>
+
+            <label for="endTime">End Time</label>
+            <input type="time" id="endTime" name="endTime" required>
+
+            <label for="testSelect">Test Select</label>
+            <select id="testSelect" name="testSelect" required>
+                <option value="">Select Test</option>
+                <option value="test1">Test 1</option>
+                <option value="test2">Test 2</option>
+            </select>
+        </div>
+
+        <button type="submit">Create job</button>
+    </form>
+</div>
+</body>
+</html>
