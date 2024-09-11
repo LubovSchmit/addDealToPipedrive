@@ -1,6 +1,18 @@
 {
   "version": 2,
   "builds": [
-    { "src": "app.js", "use": "@vercel/node" }
+    {
+      "src": "pipedrive-deal/app.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": "pipedrive-deal/**"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "pipedrive-deal/app.js"
+    }
   ]
 }
