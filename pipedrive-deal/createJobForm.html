@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deal Form</title>
+    <title>Pipedrive Deal Form</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="form-container">
+<div class="container">
+    <h1>Create a Deal in Pipedrive</h1>
     <form id="dealForm">
         <div class="form-block">
             <h2>Client Details</h2>
@@ -85,8 +86,12 @@
             </select>
         </div>
 
-        <button type="submit">Create job</button>
+        <button type="submit">Submit</button>
     </form>
+
+    <iframe id="externalContent" src="https://example.com" width="100%" height="300px" style="border:none;"></iframe>
 </div>
+
+<script src="app.js"></script>
 </body>
 </html>
