@@ -1,12 +1,13 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
+    color:darkslategrey;
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
+    font-style: italic;
 }
 
-.form-container {
+.container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
@@ -17,49 +18,100 @@ body {
 
 form {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
 .form-block {
-    border: 1px solid black;
+    border: 1px solid #ddd;
     padding: 15px;
     border-radius: 4px;
     flex: 1 1 calc(50% - 20px);
     box-sizing: border-box;
-}
-
-.form-block h2 {
-    margin-top: 0;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень справа и снизу */
+    background-color: #fff; /* Белый фон */
 }
 
 input, select, textarea {
-    width: 100%;
+    display: block;
+    width: 90%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Тень справа и снизу */
 }
 
 textarea {
     resize: vertical;
 }
 
+/* Стили для select */
+select {
+    appearance: none; /* Убирает стандартный стиль select */
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"%3E%3Cpath d="M5 6L0 1h10L5 6z" fill="%23999" /%3E%3C/svg%3E'); /* Стрелка вниз */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
+    text-align: center; /* Центрирует текст */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Тень справа и снизу */
+    width: 90%;
+}
+
+select option :hover {
+    background-color:#999999;
+}
+
+select:focus {
+    outline: none; /* Убирает стандартный контур фокуса */
+    border-color: darkslategrey; /* Цвет границы при фокусе */
+}
+
+select option {
+    color: #333; /* Цвет текста опций */
+    background-color: #fff; /* Цвет фона опций */
+
+}
+
+/* Стили для выбранного элемента */
+select option:checked {
+    background-color: #ddd; /* Цвет фона выбранного элемента */
+}
+
 button {
-    background-color: #007bff;
+    background-color: darkslategrey;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color:#999999;
+}
+
+/* Стили для placeholder */
+input::placeholder,
+textarea::placeholder {
+    color: #999; /* Серый цвет для placeholder */
+    font-style: italic; /* Курсив для стилизации */
+}
+
+/* Стили для option в select */
+select option {
+    color: #999; /* Серый цвет для опций, если они не выбраны */
 }
