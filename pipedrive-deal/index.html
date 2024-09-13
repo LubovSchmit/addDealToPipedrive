@@ -46,12 +46,12 @@
             })
                 .then(response => response.json())
                 .then(result => {
-                    console.log('Deal created?:', result);
+                    console.log('Pretty! Deal created data: ', result);
                 })
                 .catch(error => {
                     console.error('Error:', error);
                 });
-
+            sdk.execute(Command.RESIZE, { height: 600, width: 800 });
             // Открытие модального окна с данными из формы
             sdk.execute(AppExtensionsSDK.Command.OPEN_MODAL, {
                 type: AppExtensionsSDK.Modal.CUSTOM_MODAL,
@@ -67,8 +67,7 @@
                         height: 600,
                         width: 800
                     });*/
-                    return sdk.execute(Command.RESIZE, { height: 600, width: 800 });
-                })
+                          })
                 .then(() => {
                     console.log('Modal resized to height: 600px, width: 800px');
                 })
