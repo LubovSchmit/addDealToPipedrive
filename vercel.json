@@ -1,18 +1,1 @@
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "./server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "pipedrive-deal/**"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "pipedrive-deal/form.html"
-    }
-  ]
-}
+{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
