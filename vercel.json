@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "pipedrive-deal/form.html",
+      "src": "./server.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": "pipedrive-deal/**"
