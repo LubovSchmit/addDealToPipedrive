@@ -33,7 +33,7 @@
         const sdk = await new AppExtensionsSDK().initialize();
         console.log('Pipedrive SDK initialized', sdk);
 
-       /* window.addEventListener('message', async (event) => {
+        window.addEventListener('message', async (event) => {
             console.log('Received message from iframe:', event.data);
 
             try {
@@ -59,7 +59,7 @@
             } catch (error) {
                 console.error('Error executing OPEN_MODAL or resizing:', error);
             }
-        });*/
+        });
     })();
 </script>
 </body>
