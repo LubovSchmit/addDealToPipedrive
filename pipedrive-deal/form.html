@@ -49,8 +49,10 @@
             <div class="form-block">
                 <h2>Scheduled</h2>
                 <input type="date" id="startDate" name="startDate" placeholder="Start Date" required>
-                <input type="time" id="startTime" name="startTime" placeholder="Start Time" required>
-                <input type="time" id="endTime" name="endTime" placeholder="End Time" required>
+                <div class="time-block">
+                    <input type="time" id="startTime" name="startTime" placeholder="Start Time" required>
+                    <input type="time" id="endTime" name="endTime" placeholder="End Time" required>
+                </div>
                 <select id="technicianSelect" name="technicianSelect" required>
                     <option value="">Select Technician</option>
                     <option value="first technician">Olga Popova</option>

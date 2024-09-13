@@ -41,6 +41,14 @@ form {
     background-color: #fff; /* Белый фон */
 }
 
+.time-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 input, select, textarea {
     display: block;
     width: 90%;
