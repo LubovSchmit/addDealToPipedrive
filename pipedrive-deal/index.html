@@ -33,10 +33,6 @@
         const sdk = await new AppExtensionsSDK().initialize();
         console.log('Pipedrive SDK initialized');
 
-        // Устанавливаем размеры модального окна
-        sdk.modal.setHeight(600); // Задайте нужную высоту в пикселях
-        sdk.modal.setWidth(800);  // Задайте нужную ширину в пикселях
-
         window.addEventListener('message', async (event) => {
             console.log('Received message from iframe:', event.data);
 
@@ -64,6 +60,14 @@
             });
 
             console.log('Modal status:', status);
+
+            // Изменение размера модального окна после его открытия
+            await sdk.execute(AppExtensionsSDK.Command.RESIZE, {
+                height: 600,
+                width: 800
+            });
+
+            console.log('Modal resized to height: 500px, width: 600px');
         });
     })();
 </script>
