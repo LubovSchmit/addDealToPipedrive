@@ -12,6 +12,11 @@ const port = 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Включите CORS для всех маршрутов
+app.use(cors({
+    origin: 'https://add-deal-to-pipedrive.vercel.app' // Укажите свой домен
+}));
+
 // Указываем путь к папке с HTML файлами
 app.use(express.static(path.join(__dirname, 'pipedrive-deal')));
 
