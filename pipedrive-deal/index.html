@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <style>
-
         body {
             margin: 0;
             padding: 0;
@@ -15,7 +14,6 @@
             background-color: #f4f4f4;
             height: 100vh;
         }
-
         iframe {
             width: 100%;
             max-width: 800px;
@@ -24,30 +22,46 @@
             margin: 0 auto;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@pipedrive/app-extensions-sdk@0/dist/index.umd.js"></script>
 </head>
 <body>
 <iframe src="form.html"></iframe> <!-- Используем src для загрузки формы -->
 
 <script>
-    window.addEventListener('message', (event) => {
-        console.log('Received message from iframe:', event.data);
+    (async function() {
+        // Инициализация SDK
+        const sdk = await new AppExtensionsSDK().initialize();
+        console.log('Pipedrive SDK initialized');
 
-        // Отправка данных на сервер
-        fetch('http://localhost:3001/api/create-deal', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(event.data),
-        })
-            .then(response => response.json())
-            .then(result => {
-                console.log('Deal created?:', result);
+        window.addEventListener('message', async (event) => {
+            console.log('Received message from iframe:', event.data);
+
+            // Отправка данных на сервер
+            fetch('http://localhost:3001/api/create-deal', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(event.data),
             })
-            .catch(error => {
-                console.error('Error:', error);
+                .then(response => response.json())
+                .then(result => {
+                    console.log('Deal created?:', result);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+            // Открытие модального окна с данными из формы
+            const { status } = await sdk.execute(AppExtensionsSDK.Command.OPEN_MODAL, {
+                type: AppExtensionsSDK.Modal.CUSTOM_MODAL,
+                action_id: 'Open settings',  // Ваш идентификатор модального окна
+                data: event.data,  // Передаем данные из формы
             });
-    });
+
+            console.log('Modal status:', status);
+        });
+    })();
 </script>
 </body>
 </html>

@@ -8,62 +8,88 @@
 </head>
 <body>
 <div class="container">
-        <form id="dealForm">
+    <form id="dealForm">
         <div class="form-container">
-        <div class="form-block">
-            <h2>Client Details</h2>
-            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-            <input type="tel" id="phone" name="phone" placeholder="Phone" required>
-            <input type="email" id="email" name="email" placeholder="Email (optional)">
-        </div>
+            <div class="form-block">
+                <h2>Client Details</h2>
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                <input type="email" id="email" name="email" placeholder="Email (optional)">
+            </div>
 
-        <div class="form-block">
-            <h2>Job Details</h2>
-            <select id="jobType" name="jobType" required>
-                <option value="">Select Job Type</option>
-                <option value="full-time">Full-Time</option>
-                <option value="part-time">Part-Time</option>
-            </select>
-            <select id="jobSource" name="jobSource" required>
-                <option value="">Select Job Source</option>
-                <option value="website">Website</option>
-                <option value="referral">Referral</option>
-            </select>
-            <textarea id="jobDescription" name="jobDescription" rows="4" placeholder="Job Description (optional)"></textarea>
-        </div>
+            <div class="form-block">
+                <h2>Job Details</h2>
+                <select id="jobType" name="jobType" required>
+                    <option value="">Select Job Type</option>
+                    <option value="full-time">Full-Time</option>
+                    <option value="part-time">Part-Time</option>
+                </select>
+                <select id="jobSource" name="jobSource" required>
+                    <option value="">Select Job Source</option>
+                    <option value="website">Website</option>
+                    <option value="referral">Referral</option>
+                </select>
+                <textarea id="jobDescription" name="jobDescription" rows="4" placeholder="Job Description (optional)"></textarea>
+            </div>
 
-        <div class="form-block">
-            <h2>Service Location</h2>
-            <input type="text" id="address" name="address" placeholder="Address" required>
-            <input type="text" id="city" name="city" placeholder="City" required>
-            <input type="text" id="state" name="state" placeholder="State" required>
-            <input type="text" id="zipCode" name="zipCode" placeholder="Zip Code" required>
-            <select id="area" name="area" required>
-                <option value="">Select Area</option>
-                <option value="north">North</option>
-                <option value="south">South</option>
-            </select>
-        </div>
+            <div class="form-block">
+                <h2>Service Location</h2>
+                <input type="text" id="address" name="address" placeholder="Address" required>
+                <input type="text" id="city" name="city" placeholder="City" required>
+                <input type="text" id="state" name="state" placeholder="State" required>
+                <input type="text" id="zipCode" name="zipCode" placeholder="Zip Code" required>
+                <select id="area" name="area" required>
+                    <option value="">Select Area</option>
+                    <option value="north">North</option>
+                    <option value="south">South</option>
+                </select>
+            </div>
 
-        <div class="form-block">
-            <h2>Scheduled</h2>
-            <input type="date" id="startDate" name="startDate" placeholder="Start Date" required>
-            <input type="time" id="startTime" name="startTime" placeholder="Start Time" required>
-            <input type="time" id="endTime" name="endTime" placeholder="End Time" required>
-            <select id="technicianSelect" name="technicianSelect" required>
-                <option value="">Select Technician</option>
-                <option value="first technician">Olga Popova</option>
-                <option value="second technician">Liubou Schmit</option>
-            </select>
-        </div>
+            <div class="form-block">
+                <h2>Scheduled</h2>
+                <input type="date" id="startDate" name="startDate" placeholder="Start Date" required>
+                <input type="time" id="startTime" name="startTime" placeholder="Start Time" required>
+                <input type="time" id="endTime" name="endTime" placeholder="End Time" required>
+                <select id="technicianSelect" name="technicianSelect" required>
+                    <option value="">Select Technician</option>
+                    <option value="first technician">Olga Popova</option>
+                    <option value="second technician">Liubou Schmit</option>
+                </select>
+            </div>
         </div>
 
         <button type="submit">Create</button>
     </form>
 </div>
 
-<script src="iframe.js"></script>
+<script>
+    document.getElementById('dealForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
 
+        // Collect data from the form
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            jobType: document.getElementById('jobType').value,
+            jobSource: document.getElementById('jobSource').value,
+            jobDescription: document.getElementById('jobDescription').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            zipCode: document.getElementById('zipCode').value,
+            area: document.getElementById('area').value,
+            startDate: document.getElementById('startDate').value,
+            startTime: document.getElementById('startTime').value,
+            endTime: document.getElementById('endTime').value,
+            technicianSelect: document.getElementById('technicianSelect').value,
+        };
+
+        // Send data to parent window
+        window.parent.postMessage(formData, '*');
+    });
+</script>
 </body>
 </html>
