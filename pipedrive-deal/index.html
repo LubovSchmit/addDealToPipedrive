@@ -57,15 +57,17 @@
                 type: AppExtensionsSDK.Modal.CUSTOM_MODAL,
                 action_id: 'bea60497-8b43-48d5-8c9e-178ec2ede78f',
                 data: event.data,
+
             })
                 .then(({ status }) => {
                     console.log('Modal status:', status);
 
                     // Изменение размера модального окна после его открытия
-                    return sdk.execute(AppExtensionsSDK.Command.RESIZE, {
+                /*    return sdk.execute(AppExtensionsSDK.Command.RESIZE, {
                         height: 600,
                         width: 800
-                    });
+                    });*/
+                    return sdk.execute(Command.RESIZE, { height: 600, width: 800 });
                 })
                 .then(() => {
                     console.log('Modal resized to height: 600px, width: 800px');
