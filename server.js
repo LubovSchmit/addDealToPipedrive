@@ -13,12 +13,12 @@ const port = 3001;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Включите CORS для всех маршрутов
+// CORS для всех маршрутов
 app.use(cors({
-    origin: 'https://add-deal-to-pipedrive.vercel.app' // Укажите свой домен
+    origin: 'https://add-deal-to-pipedrive.vercel.app'
 }));
 
-// Указываем путь к папке с HTML файлами
+// путь к папке с HTML файлами
 app.use(express.static(path.join(__dirname, 'pipedrive-deal')));
 
 // Обслуживаем index.html по умолчанию
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'pipedrive-deal', 'index.html'));
 });
 
-// Обслуживаем form.html для iframe
+// Обслуживаем form.html
 app.get('/form.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'pipedrive-deal', 'form.html'));
 });
@@ -82,7 +82,7 @@ app.get('/callback', async (req, res) => {
 app.post('/api/create-deal', async (req, res) => {
     const {
         firstName, lastName, phone, email, jobType, jobSource, jobDescription,
-        address, city, state, zipCode, area, startDate, startTime, endTime, technicienSelect
+        address, city, state, zipCode, area, startDate, startTime, endTime, technicianSelect
     } = req.body;
     console.log('req.body:', req.body);
     try {
@@ -109,7 +109,7 @@ app.post('/api/create-deal', async (req, res) => {
                     "value": `${startTime}:00`,
                     "until": `${endTime}:00`
                 },
-                "074490b581d4c19cc6c32a85e745a70cda21d409": parseInt(technicienSelect, 10)
+                "074490b581d4c19cc6c32a85e745a70cda21d409": parseInt(technicianSelect, 10)
             }
         }, {
             headers: {
