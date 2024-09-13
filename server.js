@@ -34,7 +34,7 @@ app.get('/form.html', (req, res) => {
 // Путь для авторизации и перенаправления
 app.get('/authorize', (req, res) => {
     const clientId = process.env.PIPEDRIVE_CLIENT_ID;
-    const redirectUri = encodeURIComponent('http://localhost:3001/callback');
+    const redirectUri = encodeURIComponent('https://add-deal-to-pipedrive.vercel.app/callback');
     const authUrl = `https://oauth.pipedrive.com/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
 
     console.log('Redirecting to:', authUrl);
