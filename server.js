@@ -46,7 +46,7 @@ app.get('/callback', async (req, res) => {
     const code = req.query.code;
     const clientId = process.env.PIPEDRIVE_CLIENT_ID;
     const clientSecret = process.env.PIPEDRIVE_CLIENT_SECRET;
-    const redirectUri = 'http://localhost:3001/callback';
+    const redirectUri = 'https://add-deal-to-pipedrive.vercel.app/callback'; // Обновите здесь
 
     console.log('Authorization code:', code);
 
