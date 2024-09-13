@@ -60,8 +60,7 @@ app.get('/callback', async (req, res) => {
         }), {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'x-api-token': 'd531b586ae2088eb5091f1bf03a5d82b6149df07'
-            },
+                },
         });
 
         const { access_token } = response.data;
