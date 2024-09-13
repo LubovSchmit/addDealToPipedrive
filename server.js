@@ -55,8 +55,8 @@ app.get('/callback', async (req, res) => {
             grant_type: 'authorization_code',
             code,
             redirect_uri: redirectUri,
-            client_id: clientId,
-            client_secret: clientSecret,
+            client_id: '39d869b0c88a7fae',
+            client_secret: '43e51d1c4d548399225c13b324613b376e351058',
         }), {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
