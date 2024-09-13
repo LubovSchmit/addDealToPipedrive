@@ -74,7 +74,7 @@ app.get('/callback', async (req, res) => {
         res.send('Authorization successful! You can now use the app.');
     } catch (error) {
         console.error('Error during callback:', error.response ? error.response.data : error.message);
-        res.status(500).send('Failed to authorize');
+        res.status(500).send('Failed to authorize COUCOU');
     }
 });
 
