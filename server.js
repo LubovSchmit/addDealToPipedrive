@@ -88,7 +88,7 @@ app.post('/api/create-deal', async (req, res) => {
     try {
 
         const response = await axios.post('https://api.pipedrive.com/api/v2/deals', {
-            "title": `New deal for job creation`,
+            "title": `My test DEAL`,
             "custom_fields": {
                 "9efba3f71601acf1f5ced90841d6d2492cc5bf25": firstName,
                 "b8b6f5989d438fd74f66e7216afa641b71d5ffd1": lastName,
