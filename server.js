@@ -2,7 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const querystring = require('querystring');
-const path = require('path'); // Добавлено для работы с путями
+const path = require('path');
+const fs = require('fs'); // Не забудьте подключить модуль fs для записи токена
 require('dotenv').config();
 
 const app = express();
@@ -61,8 +62,8 @@ app.get('/callback', async (req, res) => {
         // Выводим access_token для проверки
         console.log('Access token:', access_token);
 
-        // Сохраните access_token для последующего использования, например, в переменной окружения или базе данных
-        process.env.PIPEDRIVE_ACCESS_TOKEN = access_token;
+        // Сохраняем access_token в файле
+        fs.writeFileSync('token.json', JSON.stringify({ access_token }));
 
         res.send('Authorization successful! You can now use the app.');
     } catch (error) {
@@ -75,36 +76,41 @@ app.get('/callback', async (req, res) => {
 app.post('/api/create-deal', async (req, res) => {
     const {
         firstName, lastName, phone, email, jobType, jobSource, jobDescription,
-        address, city, state, zipCode, area, startDate, startTime, endTime, testSelect
+        address, city, state, zipCode, area, startDate, startTime, endTime, technicienSelect
     } = req.body;
-
-    const accessToken = process.env.PIPEDRIVE_ACCESS_TOKEN;
+    console.log('req.body:', req.body);
+    // Загружаем access_token из сохраненного файла
+    /*const accessToken = JSON.parse(fs.readFileSync('token.json')).access_token;*/
 
     try {
-        const response = await axios.post('https://api.pipedrive.com/v2/deals', {
-            title: `NEW - Create a job`,
-            custom_fields: {
-                firstName: firstName,
-                lastName: lastName,
-                phone: phone,
-                email: email,
-                job_type: jobType,
-                job_source: jobSource,
-                job_description: jobDescription,
-                address: address,
-                city: city,
-                state: state,
-                zip_code: zipCode,
-                area: area,
-                start_date: startDate,
-                start_time: startTime,
-                end_time: endTime,
-                test_select: testSelect
+        const response = await axios.post('https://api.pipedrive.com/api/v2/deals', {
+            "title": `HEY - Create a job`,
+            "custom_fields": {
+                "9efba3f71601acf1f5ced90841d6d2492cc5bf25": firstName,
+                "b8b6f5989d438fd74f66e7216afa641b71d5ffd1": lastName,
+                "e3ab7708be06309eaa6d1af79f8ac6cfa588556b": phone,
+                "f7ef88ed767ea304de65fd21a2dbb3c8fa1865e8": email,
+                "07c5a703564dbe41c74d1638bf3fe1c0b4a3efa2": parseInt(jobType, 10), //jobType
+                "5aa52b3fd6d02886ea0db1c7cc168226767c5be6": parseInt(jobSource, 10), //jobSource
+                "b1f08c6e1ba268caa3e876c668fdda165a446f53": jobDescription,
+                "7c40d21a2c41b490f1ea4d242d30e19605c8866c": {
+                    "value": address
+                },
+                "4d4817e6bcfd92b2a0f25dbc472024d17dff5f79": city,
+                "1b2207c38bc60c36bf26558baa96051b6e583d6e": state,
+                "8d7e483d0cdca37a5a13b47a9c0f5c6662f7d014": zipCode,
+                "ce17207e0012a71e9999721c3a2aa789b4a3edf1": parseInt(area, 10),
+                "70ce7ca885ecd9bcbd4e3bac2bda6e115db44c72": startDate,
+                "085e49b353da671f146bcc38d77d4a42a532ed40": {
+                    "value": `${startTime}:00`,
+                    "until": `${endTime}:00`
+                },
+                "074490b581d4c19cc6c32a85e745a70cda21d409": parseInt(technicienSelect, 10)
             }
         }, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`,
                 'Content-Type': 'application/json',
+                'x-api-token': 'd531b586ae2088eb5091f1bf03a5d82b6149df07',
             }
         });
 

@@ -86,11 +86,6 @@ select option {
 
 }
 
-/* Стили для выбранного элемента */
-select option:checked {
-    background-color: #ddd; /* Цвет фона выбранного элемента */
-}
-
 button {
     background-color: darkslategrey;
     color: white;
