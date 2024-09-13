@@ -53,21 +53,26 @@
                 });
 
             // Открытие модального окна с данными из формы
-            const { status } = await sdk.execute(AppExtensionsSDK.Command.OPEN_MODAL, {
+            sdk.execute(AppExtensionsSDK.Command.OPEN_MODAL, {
                 type: AppExtensionsSDK.Modal.CUSTOM_MODAL,
                 action_id: 'bea60497-8b43-48d5-8c9e-178ec2ede78f',
                 data: event.data,
-            });
+            })
+                .then(({ status }) => {
+                    console.log('Modal status:', status);
 
-            console.log('Modal status:', status);
-
-            // Изменение размера модального окна после его открытия
-            await sdk.execute(AppExtensionsSDK.Command.RESIZE, {
-                height: 600,
-                width: 800
-            });
-
-            console.log('Modal resized to height: 600px, width: 800px');
+                    // Изменение размера модального окна после его открытия
+                    return sdk.execute(AppExtensionsSDK.Command.RESIZE, {
+                        height: 600,
+                        width: 800
+                    });
+                })
+                .then(() => {
+                    console.log('Modal resized to height: 600px, width: 800px');
+                })
+                .catch(error => {
+                    console.error('Error handling modal or resizing:', error);
+                });
         });
     })();
 </script>
