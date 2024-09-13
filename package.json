@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js && start http://localhost:3001"
+    "start": "node server.js && start http://localhost:3001",
+    "build": "node server.js"
   },
   "dependencies": {
     "axios": "^1.7.7",
