@@ -30,7 +30,7 @@
 <script>
     (async function() {
         // Инициализация SDK
-        const sdk = await new AppExtensionsSDK().initialize({ size: { height: 800, width: 800 } });
+        const sdk = await new AppExtensionsSDK().initialize({ size: { height: '100vh', width: 800 } });
 
         console.log('Pipedrive SDK initialized');
 
