@@ -31,7 +31,7 @@
     (async function() {
         // Инициализация SDK
         const sdk = await new AppExtensionsSDK().initialize();
-        console.log('Pipedrive SDK initialized');
+        console.log('Pipedrive SDK initialized', sdk);
 
        /* window.addEventListener('message', async (event) => {
             console.log('Received message from iframe:', event.data);
