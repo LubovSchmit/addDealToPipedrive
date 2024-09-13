@@ -85,9 +85,6 @@ app.post('/api/create-deal', async (req, res) => {
         address, city, state, zipCode, area, startDate, startTime, endTime, technicienSelect
     } = req.body;
     console.log('req.body:', req.body);
-    // Загружаем access_token из сохраненного файла
-    /*const accessToken = JSON.parse(fs.readFileSync('token.json')).access_token;*/
-
     try {
         const response = await axios.post('https://api.pipedrive.com/api/v2/deals', {
             "title": `HEY - Create a job`,
