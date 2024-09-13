@@ -37,8 +37,8 @@ form {
     border-radius: 4px;
     flex: 1 1 calc(50% - 20px);
     box-sizing: border-box;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень справа и снизу */
-    background-color: #fff; /* Белый фон */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
 }
 
 .time-block {
@@ -48,7 +48,7 @@ form {
     justify-content: center;
     gap: 10px;
     input {
-        flex: 1; /* Make each input take up equal space */
+        flex: 1;
     }
 }
 
@@ -68,19 +68,18 @@ textarea {
     resize: vertical;
 }
 
-/* Стили для select */
 select {
-    appearance: none; /* Убирает стандартный стиль select */
+    appearance: none;
     background-color: #fff;
     background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"%3E%3Cpath d="M5 6L0 1h10L5 6z" fill="%23999" /%3E%3C/svg%3E'); /* Стрелка вниз */
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px 8px;
-    text-align: center; /* Центрирует текст */
+    text-align: center;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Тень справа и снизу */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     width: 90%;
 }
 
@@ -89,13 +88,13 @@ select option :hover {
 }
 
 select:focus {
-    outline: none; /* Убирает стандартный контур фокуса */
-    border-color: darkslategrey; /* Цвет границы при фокусе */
+    outline: none;
+    border-color: darkslategrey;
 }
 
 select option {
-    color: #333; /* Цвет текста опций */
-    background-color: #fff; /* Цвет фона опций */
+    color: #333;
+    background-color: #fff;
 
 }
 
@@ -112,14 +111,12 @@ button:hover {
     background-color:#999999;
 }
 
-/* Стили для placeholder */
 input::placeholder,
 textarea::placeholder {
-    color: #999; /* Серый цвет для placeholder */
-    font-style: italic; /* Курсив для стилизации */
+    color: #999;
+    font-style: italic;
 }
 
-/* Стили для option в select */
 select option {
-    color: #999; /* Серый цвет для опций, если они не выбраны */
+    color: #999;
 }
