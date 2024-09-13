@@ -87,6 +87,7 @@
         };
         // Send data to parent window
         window.parent.postMessage(formData, '*');
+        console.log('Message sent to parent:', formData);
     });
 </script>
 </body>
