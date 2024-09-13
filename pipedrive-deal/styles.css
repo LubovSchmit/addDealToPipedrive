@@ -47,7 +47,12 @@ form {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    input {
+        flex: 1; /* Make each input take up equal space */
+    }
 }
+
+
 
 input, select, textarea {
     display: block;
