@@ -3,8 +3,9 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const querystring = require('querystring');
 const path = require('path');
-const fs = require('fs'); // Не забудьте подключить модуль fs для записи токена
+const fs = require('fs');
 require('dotenv').config();
+const cors = require('cors'); // Добавьте этот импорт
 
 const app = express();
 const port = 3001;
