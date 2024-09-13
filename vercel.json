@@ -11,5 +11,10 @@
       "src": "/(.*)",
       "dest": "server.js"
     }
-  ]
+  ],
+  "env": {
+    "PIPEDRIVE_CLIENT_ID": "@pipedrive_client_id",
+    "PIPEDRIVE_CLIENT_SECRET": "@pipedrive_client_secret",
+    "PIPEDRIVE_API_TOKEN": "@pipedrive_api_token"
+  }
 }
