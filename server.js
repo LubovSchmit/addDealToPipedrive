@@ -44,9 +44,9 @@ app.get('/authorize', (req, res) => {
 // Обратный вызов после успешной авторизации
 app.get('/callback', async (req, res) => {
     const code = req.query.code;
-    const clientId = process.env.PIPEDRIVE_CLIENT_ID;
-    const clientSecret = process.env.PIPEDRIVE_CLIENT_SECRET;
-    const redirectUri = 'https://add-deal-to-pipedrive.vercel.app/callback'; // Обновите здесь
+/*    const clientId = process.env.PIPEDRIVE_CLIENT_ID;
+    const clientSecret = process.env.PIPEDRIVE_CLIENT_SECRET;*/
+    const redirectUri = 'https://add-deal-to-pipedrive.vercel.app/callback';
 
     console.log('Authorization code:', code);
 
@@ -60,6 +60,7 @@ app.get('/callback', async (req, res) => {
         }), {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
+                'x-api-token': 'd531b586ae2088eb5091f1bf03a5d82b6149df07'
             },
         });
 
